@@ -9,18 +9,22 @@
 // 链接
 class Linker {
 public:
+    // 构造函数
     Linker();
     Linker(std::function<bool(Element* element1, Element* element2)> actionable, std::function<void(Element* element1, Element* element2)> action);
     virtual ~Linker();
 
-    virtual bool actionable(Element* element1, Element* element2);    // 可行性判断
-    virtual void action(Element* element1, Element* element2);    // 交互
+    // 可行性判断函数
+    virtual bool actionable(Element* element1, Element* element2);
+
+    // 执行函数
+    virtual void action(Element* element1, Element* element2);
 private:
-    std::function<bool(Element*, Element*)> actionableFunc;  // 可行性判断
-    std::function<void(Element*, Element*)> actionFunc;  // 交互操作
+    std::function<bool(Element*, Element*)> actionableFunc;  // 可行性判断函数
+    std::function<void(Element*, Element*)> actionFunc;  // 执行函数
 };
 
-bool isNear(Element* element1, Element* element2);
-void exchange(Element* element1, Element* element2);
+bool isNear(Element* element1, Element* element2); // 判断两个元素是否相邻
+void exchange(Element* element1, Element* element2); // 交换两个元素
 
 #endif // LINKER_H

@@ -32,9 +32,10 @@ public:
     bool operator==(std::vector<int> other) const;
 
 protected:
-    int dimension;
-    std::vector<int> vec;
+    int dimension; // 维度
+    std::vector<int> vec; // 坐标向量
 
+    // 重载 hash 函数
     virtual size_t hash() const {
         size_t hashValue = 0;
         std::hash<int> intHash;
